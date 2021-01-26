@@ -12,7 +12,7 @@ class Product(models.Model):
    itemImage = models.ImageField(upload_to='images/')
    Id = models.ImageField(upload_to='images/',default='SOME STRING')
    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-
+   #hello
 def  __str__(self):
     return self.title 
 def summary(self):
