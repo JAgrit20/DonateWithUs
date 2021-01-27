@@ -37,10 +37,3 @@ def logout(request):
         auth.logout(request)
     
         return redirect('home')
-@login_required
-def edit(request):
-    pass
-
-@login_required
-def delete(request):
-    pass

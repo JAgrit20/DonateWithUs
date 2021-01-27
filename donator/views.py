@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Product
+import accounts 
 # Create your views here.
 def home(request):
     return render(request,'donatorpages/home.html')
@@ -45,16 +46,16 @@ def upvote(request, product_id):
         product.save()
         return redirect('/products/' + str(product.id))
    
-@login_required
+@login_required(login_url="/accounts/signup")
 def edit(request):
     pass
 
-@login_required
+@login_required(login_url="/accounts/signup")
 def delete(request,product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
         request.User.delete()
-        return render(request,'donatorpages/delete.html',{'product':product})
+        return render(request,'donatorpages/delete.html')
 
 
 
