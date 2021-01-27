@@ -45,3 +45,9 @@ def upvote(request, product_id):
         product.save()
         return redirect('/products/' + str(product.id))
    
+@login_required
+def edit(request):
+    pass
+
+def delete(request):
+    pass
