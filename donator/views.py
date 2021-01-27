@@ -49,5 +49,13 @@ def upvote(request, product_id):
 def edit(request):
     pass
 
-def delete(request):
-    pass
+@login_required
+def delete(request,product_id):
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        request.User.delete()
+        return render(request,'donatorpages/delete.html',{'product':product})
+
+
+
+
